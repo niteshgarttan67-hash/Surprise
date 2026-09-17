@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Anniversary, Arsh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Caveat:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+  <canvas id="confetti"></canvas>
+
+  <div class="chrome">
+    <button class="pill" id="backBtn" hidden>← Back</button>
+    <span style="flex:1"></span>
+    <button class="pill round" id="musicBtn" title="Music" aria-label="Toggle music">🔈</button>
+  </div>
+
+  <!-- 0 — landing -->
+  <section class="screen active" data-i="0">
+    <p class="eyebrow">1ST ANNIVERSARY</p>
+    <h1>Happy<br>Anniversary,<span class="name">Arsh</span></h1>
+    <div class="art" style="margin:18px 0 6px">💑</div>
+    <div class="counter" style="margin-bottom:22px">
+      <div class="label">OUR DAY ARRIVES IN</div>
+      <div class="digits" data-clock></div>
+    </div>
+    <p class="serif-note" style="margin-bottom:6px">Ready for a little surprise?</p>
+    <div class="choice">
+      <button class="btn" id="yesBtn">Yes</button>
+      <button class="btn ghost" id="noBtn">No</button>
+    </div>
+  </section>
+
+  <!-- 1 — banner -->
+  <section class="screen" data-i="1">
+    <p class="eyebrow">1ST ANNIVERSARY</p>
+    <h2 class="ital">A little something to<br>mark our day…</h2>
+    <div class="banner" style="margin:34px 0 26px">
+      <span>❤️ HAPPY <span class="sparkle">✦</span> ❤️</span>
+      <span class="l2">ANNIVERSARY</span>
+    </div>
+    <p class="script">For Arsh 💕</p>
+    <div class="counter" style="margin:18px 0 26px">
+      <div class="label">ALMOST THERE — COUNTING DOWN</div>
+      <div class="digits" data-clock></div>
+    </div>
+    <button class="btn" data-next>Continue →</button>
+  </section>
+
+  <!-- 2 — love meter -->
+  <section class="screen" data-i="2">
+    <h2>Love Meter</h2>
+    <p class="sub">Our love grows stronger every single second.</p>
+    <div class="meter" id="meter" role="button" tabindex="0" aria-label="Tap to fill the love meter">
+      <div class="fill" id="meterFill"></div>
+      <div class="pct"><span class="hand" id="meterHand">🖐️</span><span id="meterPct">0%</span></div>
+    </div>
+    <p class="serif-note" id="meterMsg" style="margin-top:22px">Tap to fill with love!</p>
+    <button class="btn" data-next id="meterNext" style="margin-top:20px;display:none">Continue →</button>
+  </section>
+
+  <!-- 3 — pinky promise -->
+  <section class="screen" data-i="3">
+    <div class="pinky">
+      <div class="art">🤙</div>
+      <div class="touchpad" id="touchpad">TOUCH TO PROMISE</div>
+    </div>
+    <h2 style="margin-top:14px">A Pinky Promise? 🤙</h2>
+    <p class="sub" style="font-family:var(--font-display);font-style:italic;font-size:16px;color:#7E5C69">
+      A million promises kept, and a billion more to go. Stay by my side?
+    </p>
+    <button class="btn" data-next id="pinkyNext" style="margin-top:24px;display:none">Continue →</button>
+  </section>
+
+  <!-- 4 — cake -->
+  <section class="screen" data-i="4">
+    <div class="cakecard" id="cakecard">
+      <p class="eyebrow">MAKE A WISH</p>
+      <p class="script" style="margin-bottom:18px">Blow the candle, my love</p>
+      <div id="candle"><div class="flame"></div><div class="wick"></div></div>
+      <div class="art" style="margin-top:-6px">🎂</div>
+      <p class="sub" style="margin:14px auto 0;color:#A0697C">🎤 Blow into the mic — or tap the cake</p>
+      <div class="wishveil" id="wishveil">Close your eyes<br>&amp; make a wish<br>for us 💕</div>
+    </div>
+    <button class="btn" data-next id="cakeNext" style="margin-top:22px;display:none">Continue →</button>
+  </section>
+
+  <!-- 5 — letter -->
+  <section class="screen" data-i="5">
+    <h2 class="ital" style="margin-bottom:24px">A Letter From My Heart</h2>
+    <div id="envWrap"><div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the letter">💌</div>
+      <p class="sub" style="margin:14px auto 0">Tap to open</p></div>
+    <div class="paper" id="paper" style="display:none"><div class="seal">♥</div><span id="letterText"></span></div>
+    <button class="btn" data-next id="letterNext" style="margin-top:22px;display:none">Continue →</button>
+  </section>
+
+  <!-- 6 — promises -->
+  <section class="screen" data-i="6">
+    <p class="script">My promises to you ❤️</p>
+    <div class="promisewrap" id="promisewrap">
+      <div class="trees" aria-hidden="true"><span>🌸</span><span>🌸</span></div>
+      <div class="bouquet">💐</div>
+      <div class="bub" style="left:2%;top:4%">I will laugh at your jokes — even the bad ones.</div>
+      <div class="bub" style="right:2%;top:10%">I will choose us, every single day.</div>
+      <div class="bub" style="left:0%;top:38%">I will hold your hand through every storm.</div>
+      <div class="bub hl" style="right:0%;top:44%">Always with you, Arsh 💖</div>
+      <div class="bub" style="left:4%;bottom:12%">I will love you a little more tomorrow.</div>
+      <div class="bub" style="right:4%;bottom:6%">Forever yours — always 🤍</div>
+    </div>
+    <button class="btn" data-next>Continue →</button>
+  </section>
+
+  <!-- 7 — final -->
+  <section class="screen" data-i="7">
+    <div id="giftStage">
+      <p class="script" style="font-size:34px">One Last Surprise…</p>
+      <p class="serif-note" style="margin:6px 0 30px">Tap the gift 3 times</p>
+      <div class="gift" id="gift" role="button" tabindex="0" aria-label="Tap the gift">🎁</div>
+    </div>
+    <div id="finalStage" style="display:none">
+      <div class="polaroid"><div class="inner">🧸</div></div>
+      <p class="script" style="margin-top:24px">Always &amp; forever — Arsh 💕</p>
+      <p class="sub" style="font-family:var(--font-display);font-style:italic;font-size:15.5px;color:#7E5C69;margin-top:8px">
+        Here's to us — yesterday, today, and every quiet, ordinary, beautiful tomorrow.
+      </p>
+      <button class="btn ghost" id="replay" style="margin-top:24px">↻ Replay</button>
+    </div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
